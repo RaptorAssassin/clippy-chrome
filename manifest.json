@@ -6,7 +6,7 @@
         "default_popup": "popup/popup.html"
     },
     "background": {
-        "service_worker": "background/background.js"
+        "service_worker": "background/service_worker.js"
     },
     "icons": {
         "16": "",
