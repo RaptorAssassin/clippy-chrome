@@ -31,6 +31,7 @@ function ensureUI() {
   iframe = document.createElement('iframe')
   const src = chrome.runtime.getURL('content/clippy.html')
   iframe.src = src
+  iframe.setAttribute('allowtransparency', 'true')
   iframe.style.border = 'none'
   iframe.style.width = '300px'
   iframe.style.height = '300px'
