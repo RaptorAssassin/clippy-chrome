@@ -24,11 +24,11 @@ export const WEBSITE_ANIMS = {
 
 export const DEFAULT_ANIMS = [
     {
-        "anim": "/anims/ballspin.mkv",
+        "anim": "/anims/ballspin.webm",
         "weight": 1
     },
     {
-        "anim": "/anims/bounce.mkv",
+        "anim": "/anims/bounce.webm",
         "weight": 1
     },
 ]

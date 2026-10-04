@@ -33,7 +33,7 @@ function ensureUI() {
   iframe.src = src
   iframe.style.border = 'none'
   iframe.style.width = '300px'
-  iframe.style.height = '220px'
+  iframe.style.height = '300px'
   iframe.style.background = 'transparent'
   iframe.style.display = 'block'
   iframe.addEventListener('load', () => {

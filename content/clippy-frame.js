@@ -8,9 +8,9 @@ function showHint(message) {
   hintElement.textContent = message.hint
 
   const animations = [
-    'anims/ballspin.mkv',
-    'anims/bounce.mkv',
-    'anims/still.mkv',
+    'anims/ballspin.webm',
+    'anims/bounce.webm',
+    'anims/still.webm',
   ]
   const requestedAnimation =
     typeof message.anim === 'string' ? message.anim.replace(/^\/+/, '') : ''

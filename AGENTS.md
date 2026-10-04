@@ -11,7 +11,7 @@
 
 - `background/service-worker.js`: `normalizeHostname()` + `getRandomHint()` + `chrome.webNavigation.onCompleted` listener filtered to `http`/`https`.
 - `data/clippy-hints.js`: sole hint store. Exports `WEBSITE_HINTS` (base-domain keyed, e.g. `github.com`), `DEFAULT_HINTS`, `DEFAULT_WEIGHT`. Hint shape is `{ message: string, weight: number }`.
-- `icons/`, `anims/ballspin.mkv` are static assets; `anims/` is currently unreferenced.
+- `icons/`, `anims/ballspin.webm` are static assets; `anims/` is currently unreferenced.
 
 ## Hostname + hint logic
 
