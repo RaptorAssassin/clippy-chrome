@@ -9,7 +9,7 @@
         "service_worker": "background/service-worker.js",
         "type": "module"
     },
-    "permissions": ["webNavigation"],
+    "permissions": ["webNavigation", "storage"],
     "host_permissions": ["<all_urls>"],
     "content_scripts": [
         {
