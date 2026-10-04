@@ -9,6 +9,11 @@ hint shape:
 
 export const DEFAULT_WEIGHT = 1
 
+export const AI_HINTS = [{
+    "message": "Clippy never hallucinates!",
+    weight: 1
+}]
+
 export const WEBSITE_HINTS = {
     "github.com": [
         {
@@ -21,6 +26,7 @@ export const WEBSITE_HINTS = {
         }
     ],
     "openai.com": [
+        ...AI_HINTS,
         {
             "message": "GET OFF CHATGPT.",
             "weight": 1
