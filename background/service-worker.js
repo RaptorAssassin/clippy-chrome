@@ -89,9 +89,6 @@ chrome.webNavigation.onCompleted.addListener(
   { url: [{ schemes: ['http', 'https'] }] }
 )
 
-//Please optimize all code below this, I kinda suck at JS
-//Also half of this is just modified code you made
-
 function getRandomAnim(hostname) {
   const anims = WEBSITE_ANIMS[normalizeHostname(hostname)] || DEFAULT_ANIMS
   if (!anims.length) return null
