@@ -1,10 +1,3 @@
-chrome.runtime.onMessage.addListener((message) => {
-  if (message.type === 'showHint') {
-    const hint = message
-    console.log(`Received hint: ${hint}`)
-  }
-})
-
 let hostEl = null
 let shadow = null
 
