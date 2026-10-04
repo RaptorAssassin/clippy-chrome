@@ -1,7 +1,15 @@
-html {
-    background: transparent;
-
+html,
+body {
+    background-color: transparent !important;
+    margin: 0;
 }
+
+video {
+    display: block;
+    background-color: transparent;
+}
+
 body {
     overflow: hidden;
+    background-color: transparent;
 }
