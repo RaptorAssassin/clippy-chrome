@@ -1,57 +1,68 @@
 let hostEl = null
 let shadow = null
-let iframe = null
-let iframeReady = false
-let pendingMessage = null
-
-function sendToFrame(message) {
-  if (!iframeReady || !iframe?.contentWindow) {
-    pendingMessage = message
-    return
-  }
-  iframe.contentWindow.postMessage(message, new URL(iframe.src).origin)
-}
 
 function ensureUI() {
   const existing = document.getElementById('clippy-host')
-  if (existing) {
+  if (existing?.shadowRoot?.querySelector('#clippy')) {
     hostEl = existing
     shadow = existing.shadowRoot
-    iframe = shadow.querySelector('iframe')
     return
   }
+  existing?.remove()
   hostEl = document.createElement('div')
   hostEl.id = 'clippy-host'
   hostEl.style.position = 'fixed'
   hostEl.style.bottom = '20px'
   hostEl.style.right = '20px'
   hostEl.style.zIndex = '2147483647'
+  hostEl.style.background = 'transparent'
   shadow = hostEl.attachShadow({ mode: 'open' })
   ;(document.body || document.documentElement).appendChild(hostEl)
-  iframe = document.createElement('iframe')
-  const src = chrome.runtime.getURL('content/clippy.html')
-  iframe.src = src
-  iframe.setAttribute('allowtransparency', 'true')
-  iframe.style.border = 'none'
-  iframe.style.width = '300px'
-  iframe.style.height = '300px'
-  iframe.style.background = 'transparent'
-  iframe.style.display = 'block'
-  iframe.addEventListener('load', () => {
-    iframeReady = true
-    if (pendingMessage) {
-      sendToFrame(pendingMessage)
-      pendingMessage = null
-    }
-  })
-  shadow.appendChild(iframe)
+  const stylesheet = document.createElement('link')
+  stylesheet.rel = 'stylesheet'
+  stylesheet.href = chrome.runtime.getURL('content/clippy.css')
+  shadow.appendChild(stylesheet)
+  const hint = document.createElement('h1')
+  hint.id = 'hint'
+  hint.textContent = 'HINT'
+  shadow.appendChild(hint)
+  const video = document.createElement('video')
+  video.id = 'clippy'
+  video.width = 300
+  video.height = 300
+  shadow.appendChild(video)
 }
 
 ensureUI()
 
-chrome.runtime.onMessage.addListener((message) => {
-  if (message?.type === 'showHint') sendToFrame(message)
-})
+function showHint(message) {
+  if (message?.type !== 'showHint' || typeof message.hint !== 'string') return
+  const hintElement = shadow.querySelector('#hint')
+  const video = shadow.querySelector('#clippy')
+  if (!hintElement || !video) return
+
+  hintElement.textContent = message.hint
+  const animations = [
+    'anims/ballspin.webm',
+    'anims/bounce.webm',
+    'anims/still.webm',
+  ]
+  const requestedAnimation =
+    typeof message.anim === 'string' ? message.anim.replace(/^\/+/, '') : ''
+  const animation = animations.includes(requestedAnimation)
+    ? requestedAnimation
+    : animations[Math.floor(Math.random() * animations.length)]
+
+  video.src = chrome.runtime.getURL(animation)
+  video.muted = true
+  video.playsInline = true
+  video.load()
+  video.play().catch((error) => {
+    console.error('Unable to play Clippy animation:', error)
+  })
+}
+
+chrome.runtime.onMessage.addListener(showHint)
 
 function maybeRemoveAiOverview() {
   let url
