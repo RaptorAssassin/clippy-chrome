@@ -1,28 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-  chrome.storage.local.get('settings', (data) => {
-    if (!data.settings) {
-      // Set default settings if they don't exist
-      chrome.storage.local.set({
-        settings: { showHints: true, hintChance: 50 },
-      })
-      return
-    }
-    if (data.settings) {
-      document.getElementById('show-hints').checked = data.settings.showHints
-      document.getElementById('hint-chance').value = data.settings.hintChance
-    }
-  })
+let settings = { showHints: true, hintChance: 50 }
+
+chrome.storage.local.get('settings', (data) => {
+  if (data.settings) {
+    settings = data.settings
+  } else {
+    chrome.storage.local.set({ settings })
+  }
+  document.getElementById('show-hints').checked = settings.showHints
+  document.getElementById('hint-chance').value = settings.hintChance
+  document.getElementById('hint-chance-value').innerText =
+    settings.hintChance + '%'
 })
 
 document.getElementById('show-hints').onchange = (e) => {
-  chrome.storage.local.set({
-    settings: { ...settings, showHints: e.target.checked },
-  })
+  settings = { ...settings, showHints: e.target.checked }
+  chrome.storage.local.set({ settings })
 }
 
 document.getElementById('hint-chance').onchange = (e) => {
-  chrome.storage.local.set({
-    settings: { ...settings, hintChance: e.target.value },
-  })
+  settings = { ...settings, hintChance: Number(e.target.value) }
+  chrome.storage.local.set({ settings })
   document.getElementById('hint-chance-value').innerText = e.target.value + '%'
 }
