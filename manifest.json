@@ -11,6 +11,20 @@
     },
     "permissions": ["webNavigation"],
     "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["content/clippy.js"],
+            "css": ["content/clippy.css"],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["content/clippy.js", "content/clippy.css", "icons/clippy-icon.png"],
+            "matches": ["<all_urls>"]
+        }
+    ],
     "icons": {
         "16": "icons/clippy-icon.png",
         "48": "icons/clippy-icon.png",
