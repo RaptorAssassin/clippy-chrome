@@ -43,7 +43,6 @@ export const WEBSITE_HINTS = {
             "message": "Subscribe to @Cow_Aeronautics and @",
             "weight": 3
         },
-    ],
         {
             "message": "stop scrolling pls",
             "weight": 3
