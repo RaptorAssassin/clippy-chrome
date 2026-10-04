@@ -63,4 +63,5 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     if (!hint) return
     console.log(`Hint for ${normalized}: ${hint}`)
     // Send hint to Clippy UI
+    chrome.tabs.sendMessage(details.tabId, { type: 'showHint', hint })
 }, { url: [{ schemes: ["http", "https"] }] })
