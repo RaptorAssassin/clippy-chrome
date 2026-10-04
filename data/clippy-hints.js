@@ -20,7 +20,38 @@ export const WEBSITE_HINTS = {
             "weight": 1
         }
     ],
+    "openai.com": [
+        {
+            "message": "GET OFF CHATGPT.",
+            "weight": 1
+        },
+        {
+            "message": "At least use a different AI",
+            "weight": 2
+        }
+    ],
+    "youtube.com": [
+        {
+            "message": "Tomska > Mr. Beast",
+            "weight": 1
+        },
+        {
+            "message": "You can only 'hype' a video on mobile",
+            "weight": 3
+        },
+        {
+            "message": "Subscribe to @Cow_Aeronautics and @",
+            "weight": 3
+        },
+    ],
+        {
+            "message": "stop scrolling pls",
+            "weight": 3
+        },
+    ],
 }
+
+
 
 export const DEFAULT_HINTS = [
     {

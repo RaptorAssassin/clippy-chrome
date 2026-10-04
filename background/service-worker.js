@@ -1,4 +1,5 @@
 import { WEBSITE_HINTS, DEFAULT_HINTS, DEFAULT_WEIGHT } from "../data/clippy-hints.js"
+import { WEBSITE_ANIMS, DEFAULT_ANIMS, DEFAULT_ANIM_WEIGHT } from "../data/anims.js"
 
 /**
  * Normalizes the website hostname by removing subdomains, protocols, ports etc., for example: "https://www.gist.github.com/anything" -> "github.com"
@@ -60,7 +61,27 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     const url = details.url
     const normalized = normalizeHostname(url)
     const hint = getRandomHint(url)
+    const anim = getRandomAnim(url)
     if (!hint) return
     console.log(`Hint for ${normalized}: ${hint}`)
     // Send hint to Clippy UI
 }, { url: [{ schemes: ["http", "https"] }] })
+
+//Please optimize all code below this, I kinda suck at JS
+//Also half of this is just modified code you made
+
+function getRandomAnim(hostname) {
+    const anims = WEBSITE_ANIMS[normalizeHostname(hostname)] || DEFAULT_ANIMS
+    if (!anims.length) return null
+    const totalWeight = anims.reduce((sum, anim) => sum + Math.max(0, anim.weight ?? DEFAULT_ANIM_WEIGHT), 0)
+    if (totalWeight <= 0) return anims[0]?.anim ?? null
+    let randomWeight = Math.random() * totalWeight
+    for (const anim of anims) {
+        randomWeight -= Math.max(0, anim.weight ?? DEFAULT_ANIM_WEIGHT)
+        if (randomWeight <= 0) {
+            return anim.anim
+        }
+    }
+    return anims[anims.length - 1]?.anim ?? null
+}
+
