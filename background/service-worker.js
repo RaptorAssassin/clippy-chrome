@@ -1,3 +1,5 @@
+import { WEBSITE_HINTS, DEFAULT_HINTS, DEFAULT_WEIGHT } from "../data/clippy-hints.js"
+
 /**
  * Normalizes the website hostname by removing subdomains, protocols, ports etc., for example: "https://www.gist.github.com/anything" -> "github.com"
  * @param {*} input - The input hostname to normalize 
@@ -5,9 +7,22 @@
  */
 function normalizeHostname(input) {
     if (typeof input !== 'string' || !input) return ''
-    let host = input.toLowerCase().trim()
-    const match = host.match(/^(?:[a-z][a-z0-9+.-]*:\/\/)?([^/:?#]+)/)
-    if (match) host = match[1]
+    const trimmed = input.trim()
+    if (!trimmed) return ''
+    let host = trimmed
+    if (/^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed)) {
+        try {
+            host = new URL(trimmed).hostname
+        } catch {
+            // Fall through to regex extraction below
+            const match = trimmed.toLowerCase().match(/^(?:[a-z][a-z0-9+.-]*:\/\/)?([^/:?#@]+)/)
+            host = match ? match[1].split('@').pop() : trimmed
+        }
+    } else {
+        const match = trimmed.toLowerCase().match(/^([^/:?#@]+)/)
+        host = match ? match[1].split('@').pop() : trimmed
+    }
+    host = host.toLowerCase()
     if (host.startsWith('[')) {
         const end = host.indexOf(']')
         return end !== -1 ? host.slice(1, end) : host
@@ -20,3 +35,32 @@ function normalizeHostname(input) {
     const base = host.match(/([^.]+\.[^.]+)$/)
     return base ? base[1] : host
 }
+
+/**
+ * Returns a random weighted hint for the hostname. Returns a default hint when there are no hints for the hostname. Returns null when there are no hints at all.
+ * @param {*} hostname The hostname to get a hint for
+ * @returns The hint message, or null if there are no hints
+ */
+function getRandomHint(hostname) {
+    const hints = WEBSITE_HINTS[normalizeHostname(hostname)] || DEFAULT_HINTS
+    if (!hints.length) return null
+    const totalWeight = hints.reduce((sum, hint) => sum + Math.max(0, hint.weight ?? DEFAULT_WEIGHT), 0)
+    if (totalWeight <= 0) return hints[0]?.message ?? null
+    let randomWeight = Math.random() * totalWeight
+    for (const hint of hints) {
+        randomWeight -= Math.max(0, hint.weight ?? DEFAULT_WEIGHT)
+        if (randomWeight <= 0) {
+            return hint.message
+        }
+    }
+    return hints[hints.length - 1]?.message ?? null
+}
+
+chrome.webNavigation.onCompleted.addListener((details) => {
+    const url = details.url
+    const normalized = normalizeHostname(url)
+    const hint = getRandomHint(url)
+    if (!hint) return
+    console.log(`Hint for ${normalized}: ${hint}`)
+    // Send hint to Clippy UI
+}, { url: [{ schemes: ["http", "https"] }] })

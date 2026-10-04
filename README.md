@@ -1,4 +1,6 @@
-# clippy-chrome
+# Clippy Chrome Extension
+
+A Clippy browser extension that randomly pops up and gives more or less helpful tips for the website you're on!
 
 ## Folder Structure
 
