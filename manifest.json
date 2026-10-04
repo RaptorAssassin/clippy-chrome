@@ -20,7 +20,8 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["content/clippy-injection.js", "content/clippy.html", "content/clippy.css", "icons/clippy-icon.png"],
+
+            "resources": ["content/clippy-injection.js", "content/clippy.html", "anims/*.mkv", "content/clippy.css", "icons/clippy-icon.png"],
             "matches": ["<all_urls>"]
         }
     ],
