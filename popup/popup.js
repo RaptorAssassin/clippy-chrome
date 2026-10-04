@@ -1,4 +1,4 @@
-let settings = { showHints: true, hintChance: 50 }
+let settings = { showHints: true, hintChance: 50, removeAiOverview: true }
 
 chrome.storage.local.get('settings', (data) => {
   if (data.settings) {
@@ -10,6 +10,8 @@ chrome.storage.local.get('settings', (data) => {
   document.getElementById('hint-chance').value = settings.hintChance
   document.getElementById('hint-chance-value').innerText =
     settings.hintChance + '%'
+  document.getElementById('remove-ai-overview').checked =
+    settings.removeAiOverview
 })
 
 document.getElementById('show-hints').onchange = (e) => {
@@ -21,4 +23,9 @@ document.getElementById('hint-chance').onchange = (e) => {
   settings = { ...settings, hintChance: Number(e.target.value) }
   chrome.storage.local.set({ settings })
   document.getElementById('hint-chance-value').innerText = e.target.value + '%'
+}
+
+document.getElementById('remove-ai-overview').onchange = (e) => {
+  settings = { ...settings, removeAiOverview: e.target.checked }
+  chrome.storage.local.set({ settings })
 }

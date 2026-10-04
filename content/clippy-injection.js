@@ -28,3 +28,24 @@ function ensureUI() {
 }
 
 ensureUI()
+
+function maybeRemoveAiOverview() {
+  let url
+  try {
+    url = new URL(window.location.href)
+  } catch {
+    return
+  }
+  if (!url.hostname.includes('google')) return
+  if (url.pathname !== '/search') return
+  if (url.searchParams.get('udm') === '14') return
+  chrome.storage.local.get('settings', (data) => {
+    const remove = data.settings?.removeAiOverview ?? true
+    if (!remove) return
+    if (url.searchParams.get('udm') === '14') return
+    url.searchParams.set('udm', '14')
+    window.location.replace(url.toString())
+  })
+}
+
+maybeRemoveAiOverview()
