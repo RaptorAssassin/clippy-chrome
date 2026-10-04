@@ -84,25 +84,33 @@ chrome.webNavigation.onCompleted.addListener(
     if (!hint) return
     console.log(`Hint for ${normalized}: ${hint}`)
     // Send hint to Clippy UI
-    chrome.tabs.sendMessage(details.tabId, { type: 'showHint', hint })
+    chrome.tabs.sendMessage(details.tabId, { type: 'showHint', hint, anim })
   },
   { url: [{ schemes: ['http', 'https'] }] }
 )
 
 function getRandomAnim(hostname) {
-  const anims = WEBSITE_ANIMS[normalizeHostname(hostname)] || DEFAULT_ANIMS
-  if (!anims.length) return null
-  const totalWeight = anims.reduce(
+  const websiteAnims = WEBSITE_ANIMS[normalizeHostname(hostname)] || []
+  const anims = websiteAnims.filter(
+    (anim) => typeof anim.anim === 'string' && anim.anim.trim()
+  )
+  const availableAnims = anims.length
+    ? anims
+    : DEFAULT_ANIMS.filter(
+        (anim) => typeof anim.anim === 'string' && anim.anim.trim()
+      )
+  if (!availableAnims.length) return null
+  const totalWeight = availableAnims.reduce(
     (sum, anim) => sum + Math.max(0, anim.weight ?? DEFAULT_ANIM_WEIGHT),
     0
   )
-  if (totalWeight <= 0) return anims[0]?.anim ?? null
+  if (totalWeight <= 0) return availableAnims[0]?.anim ?? null
   let randomWeight = Math.random() * totalWeight
-  for (const anim of anims) {
+  for (const anim of availableAnims) {
     randomWeight -= Math.max(0, anim.weight ?? DEFAULT_ANIM_WEIGHT)
     if (randomWeight <= 0) {
       return anim.anim
     }
   }
-  return anims[anims.length - 1]?.anim ?? null
+  return availableAnims[availableAnims.length - 1]?.anim ?? null
 }
