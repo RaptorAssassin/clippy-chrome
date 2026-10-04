@@ -4,6 +4,6 @@ A Clippy browser extension that randomly pops up and gives more or less helpful 
 
 ## Folder Structure
 
-`/popup`: The main Clippy popup  
+`/popup`: The main menu popup  
 `/background`: Background worker that controls when Clippy appears  
 `/icons`: Contains the icon files  
