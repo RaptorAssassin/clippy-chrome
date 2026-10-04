@@ -2,3 +2,15 @@ html {
     width: 600px;
     height: 400px;
 }
+
+#settings-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.setting {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

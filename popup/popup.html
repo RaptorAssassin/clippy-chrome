@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <!-- make this a flex box layout with flex column and vertical gap between -->
-    <div class="">
-        <input type="checkbox" id="show-hints" />
-        <label for="show-hints">Show Hints</label>
+    <div id="settings-menu">
+        <div class="setting">
+            <input type="checkbox" id="show-hints" />
+            <label for="show-hints">Show Hints</label>
+        </div>
+        <div class="setting">
+            <span id="hint-chance-value">50%</span>
+            <input type="range" id="hint-chance" min="0" max="100" value="50" steps/>
+            <label for="hint-chance">Chance that a hint appears</label>
+        </div>
     </div>
 
     <script src="popup.js"></script>
