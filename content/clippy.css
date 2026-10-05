@@ -2,6 +2,7 @@
     color-scheme: light;
     background: transparent !important;
     background-color: transparent !important;
+    --clippy-color: hsla(46, 41%, 66%, 0.75);
 }
 
 html,
@@ -36,18 +37,41 @@ body {
 
 #hint {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    display: block;
+    box-sizing: border-box;
     margin: 0;
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #fff;
-    font-size: large;
-    font-weight: bold;
-    text-align: justify;
-    text-wrap-style: pretty;
+    padding: 8px 10px;
+    background-color: #FFFFE1 !important;
+    color: #201A00;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: normal;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+#hint:empty {
+    display: none;
+}
+
+#hint::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    right: 48px;
+    width: 12px;
+    height: 12px;
+    background-color: #FFFFE1;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: rotate(45deg);
 }
 
 *::selection {
-    background: hsla(46, 41%, 66%, 0.75);
+    background: var(--clippy-color);
 }

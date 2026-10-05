@@ -10,7 +10,7 @@ function resolveAnimation(requested) {
 function showHint(message) {
   if (message?.type !== 'showHint' || typeof message.hint !== 'string') return
   const hintElement = document.getElementById('hint')
-  const video = document.getElementById('clippy')
+  const video = document.getElementById('clippy-video')
   if (!hintElement || !video) return
   hintElement.textContent = message.hint
   video.src = chrome.runtime.getURL(resolveAnimation(message.anim))
