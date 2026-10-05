@@ -8,8 +8,14 @@ html {
 }
 
 body {
+    font-family: 'Pixelify Sans', Tahoma, sans-serif;
+    font-size: 16px;
     background-color: var(--clippy-color);
     padding: 10px;
+}
+
+h1 {
+    margin: auto;
 }
 
 #settings-menu {
