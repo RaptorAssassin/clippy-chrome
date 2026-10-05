@@ -89,8 +89,7 @@ maybeRemoveAiOverview()
 function decideIfShouldShowHint(data) {
   const settings = chrome.storage.local.get('settings')
 
-  if (!settings.showHints) return false
-  if (settings.hintChance <= 0) return false
+  if (!settings.showHints || settings.hintChance <= 0) return
   if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance)
     showHint(data)
 }

@@ -75,16 +75,24 @@ function getRandomHint(hostname) {
   return hints[hints.length - 1]?.message ?? null
 }
 
+function sendHint(tabId, message, retries = 1) {
+  chrome.tabs.sendMessage(tabId, message).catch(() => {
+    if (retries > 0) {
+      setTimeout(() => sendHint(tabId, message, retries - 1), 500)
+    }
+  })
+}
+
 chrome.webNavigation.onCompleted.addListener(
   (details) => {
+    if (details.frameId !== 0) return
     const url = details.url
     const normalized = normalizeHostname(url)
     const hint = getRandomHint(url)
     const anim = getRandomAnim(url)
     if (!hint) return
     console.log(`Hint for ${normalized}: ${hint}`)
-    // Send hint to Clippy UI
-    chrome.tabs.sendMessage(details.tabId, { type: 'showHint', hint, anim })
+    sendHint(details.tabId, { type: 'showHint', hint, anim })
   },
   { url: [{ schemes: ['http', 'https'] }] }
 )
