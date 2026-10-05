@@ -29,6 +29,10 @@ function requestFit() {
   window.parent.postMessage({ type: 'clippyResize', height }, '*')
 }
 
+/**
+ * Show a hint in the CLippy UI
+ * @param {*} message
+ */
 function showHint(message) {
   if (message?.type !== 'showHint' || typeof message.hint !== 'string') return
   const hintElement = document.getElementById('hint')
@@ -73,6 +77,11 @@ function getHintSettings() {
   })
 }
 
+/**
+ * Decides if the hint should be shown based on the settings and a random chance.
+ * @param {*} data - The hint data that gets passed to the hint function
+ * @returns {Promise<boolean>} - A promise that resolves to true if the hint should be shown, false otherwise.
+ */
 async function decideIfShouldShowHint(data) {
   if (data?.type !== 'showHint') return false
   const settings = await getHintSettings()

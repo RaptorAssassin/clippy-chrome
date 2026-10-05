@@ -1,4 +1,4 @@
-let settings = { showHints: true, hintChance: 50, removeAiOverview: true }
+let settings = { showHints: true, hintChance: 100, removeAiOverview: true }
 
 chrome.storage.local.get('settings', (data) => {
   if (data.settings) {
