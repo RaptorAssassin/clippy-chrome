@@ -41,12 +41,11 @@ h1 {
     height: 25px;
     top: 0px;
     left: 0px;
-    background-color: rgb(22, 22, 170);
+    background-image: linear-gradient(to right, #1100ff, #3e72ff);
     position: absolute;
+    font-size: 17px;
+    font-family: sans-serif;
+    color: black;
+    font-weight: bold;
 }
 
-.top-bar p {
-    font-size: 17px;
-    font-family: serif;
-    color: black;
-}
