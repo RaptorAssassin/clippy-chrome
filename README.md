@@ -2,6 +2,8 @@
 
 A Clippy browser extension that randomly pops up and gives more or less helpful tips for the website you're on!
 
+![GitHub License](https://img.shields.io/github/license/RaptorAssassin/clippy-chrome?label=License)
+
 ## Features
 
 -**Awesome Hints**: Clippy gives random hints, depending on the website you're on! If no specific hints are available, it falls back to some default ones.
