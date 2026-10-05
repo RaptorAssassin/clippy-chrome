@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background:transparent;">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="light">
         <title>Clippy</title>
         <link rel="stylesheet" href="clippy.css">
     </head>
-    <body>
-        <h1 id="hint">HINT</h1>
-        <video id="clippy" style="width: 300px; height: 300px;">  </video>
+    <body style="background:transparent;">
+        <span id="hint"></span>
+        <video id="clippy-video" muted playsinline disablepictureinpicture disableremoteplayback ></video>
         <script src="clippy-frame.js"></script>
     </body>
 </html>

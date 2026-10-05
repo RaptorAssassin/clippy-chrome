@@ -1,35 +1,28 @@
+const ANIMATIONS = ['anims/ballspin.webm', 'anims/bounce.webm', 'anims/still.webm']
+
+function resolveAnimation(requested) {
+  const normalized =
+    typeof requested === 'string' ? requested.replace(/^\/+/, '') : ''
+  if (ANIMATIONS.includes(normalized)) return normalized
+  return ANIMATIONS[Math.floor(Math.random() * ANIMATIONS.length)]
+}
+
 function showHint(message) {
   if (message?.type !== 'showHint' || typeof message.hint !== 'string') return
-
   const hintElement = document.getElementById('hint')
   const video = document.getElementById('clippy')
   if (!hintElement || !video) return
-
   hintElement.textContent = message.hint
-
-  const animations = [
-    'anims/ballspin.webm',
-    'anims/bounce.webm',
-    'anims/still.webm',
-  ]
-  const requestedAnimation =
-    typeof message.anim === 'string' ? message.anim.replace(/^\/+/, '') : ''
-  const animation = animations.includes(requestedAnimation)
-    ? requestedAnimation
-    : animations[Math.floor(Math.random() * animations.length)]
-
-  video.src = chrome.runtime.getURL(animation)
+  video.src = chrome.runtime.getURL(resolveAnimation(message.anim))
   video.muted = true
   video.playsInline = true
   video.load()
   video.play().catch((error) => {
     console.error('Unable to play Clippy animation:', error)
   })
-  setTimeout(() => {
-    console.log("anim complete");
-  }, 3000);
 }
 
 window.addEventListener('message', (event) => {
-  if (event.source === window.parent) showHint(event.data)
+  if (event.source !== window.parent) return
+  showHint(event.data)
 })

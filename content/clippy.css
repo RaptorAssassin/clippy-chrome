@@ -1,15 +1,37 @@
+:root {
+    color-scheme: light;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
 :host {
     display: block;
     width: 300px;
     height: 300px;
     background: transparent !important;
+    background-color: transparent !important;
 }
 
-#clippy {
+#clippy-video {
     display: block;
     width: 300px;
     height: 300px;
+    object-fit: contain;
+    border: none;
+    outline: none;
     background: transparent !important;
+    background-color: transparent !important;
 }
 
 #hint {
@@ -18,4 +40,14 @@
     left: 0;
     margin: 0;
     background: transparent !important;
+    background-color: transparent !important;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+    text-align: justify;
+    text-wrap-style: pretty;
+}
+
+*::selection {
+    background: hsla(46, 41%, 66%, 0.75);
 }
