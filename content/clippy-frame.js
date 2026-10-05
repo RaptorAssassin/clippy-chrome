@@ -6,12 +6,15 @@ const ANIMATIONS = [
 
 function resolveAnimation(requested) {
   const normalized =
-    typeof requested === 'string' ? requested.replace(/^\/+/, '') : ''
-  if (ANIMATIONS.includes(normalized)) return normalized
+    typeof requested === 'string' ? requested.trim().replace(/^\/+/, '') : ''
+  if (normalized && ANIMATIONS.includes(normalized)) return normalized
   return ANIMATIONS[Math.floor(Math.random() * ANIMATIONS.length)]
+<<<<<<< HEAD
   if (gun.anim == true) {
     return ANIMATIONS[4]
   }
+=======
+>>>>>>> 8f6d59a (fix syntax errors for persistant clippy)
 }
 
 function outerHeight(element) {
@@ -56,7 +59,9 @@ requestFit()
 
 window.addEventListener('message', (event) => {
   if (event.source !== window.parent) return
-  decideIfShouldShowHint(event.data)
+  if (event.data?.type === 'showHint') {
+    decideIfShouldShowHint(event.data)
+  }
 })
 
 /**
@@ -89,10 +94,28 @@ function maybeRemoveAiOverview() {
 
 maybeRemoveAiOverview()
 
-function decideIfShouldShowHint(data) {
-  const settings = chrome.storage.local.get('settings')
+function getHintSettings() {
+  return new Promise((resolve) => {
+    chrome.storage.local.get('settings', (data) => {
+      resolve(data.settings ?? { showHints: true, hintChance: 50, removeAiOverview: true })
+    })
+  })
+}
 
+async function decideIfShouldShowHint(data) {
+  if (data?.type !== 'showHint') return false
+  const settings = await getHintSettings()
+
+<<<<<<< HEAD
   if (!settings.showHints || settings.hintChance <= 0) return
   if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance)
+=======
+  if (!settings.showHints) return false
+  if (settings.hintChance <= 0) return false
+  if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance) {
+>>>>>>> be21034 (fix syntax errors for persistant clippy)
     showHint(data)
+    return true
+  }
+  return false
 }
