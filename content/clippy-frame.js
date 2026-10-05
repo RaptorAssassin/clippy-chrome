@@ -9,8 +9,9 @@ function resolveAnimation(requested) {
     typeof requested === 'string' ? requested.replace(/^\/+/, '') : ''
   if (ANIMATIONS.includes(normalized)) return normalized
   return ANIMATIONS[Math.floor(Math.random() * ANIMATIONS.length)]
-    if (gun.anim == true) {
+  if (gun.anim == true) {
     return ANIMATIONS[4]
+  }
 }
 
 function outerHeight(element) {
