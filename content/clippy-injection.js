@@ -91,3 +91,30 @@ window.addEventListener('resize', () => {
 })
 
 ensureUI()
+
+function maybeRemoveAiOverview() {
+  let url
+  try {
+    url = new URL(window.location.href)
+  } catch {
+    return
+  }
+  if (!url.hostname.includes('google')) return
+  if (url.pathname !== '/search') return
+  chrome.storage.local.get('settings', (data) => {
+    const remove = data.settings?.removeAiOverview ?? true
+    if (!remove) {
+      if (url.searchParams.get('udm') !== '14') return
+      url.searchParams.delete('udm')
+      if (url.toString() !== window.location.href) {
+        window.location.replace(url.toString())
+      }
+      return
+    }
+    if (url.searchParams.has('udm')) return
+    url.searchParams.set('udm', '14')
+    window.location.replace(url.toString())
+  })
+}
+
+maybeRemoveAiOverview()

@@ -77,9 +77,11 @@ async function decideIfShouldShowHint(data) {
   if (data?.type !== 'showHint') return false
   const settings = await getHintSettings()
 
-  if (!settings.showHints || settings.hintChance <= 0) return
-  if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance)
+  if (!settings.showHints) return false
+  if (settings.hintChance <= 0) return false
+  if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance) {
     showHint(data)
-  return true
+    return true
+  }
+  return false
 }
-return false

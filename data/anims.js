@@ -35,4 +35,8 @@ export const DEFAULT_ANIMS = [
     anim: 'anims/still.webm',
     weight: 1,
   },
+  {
+    anim: 'anims/gun.webm',
+    weight: 1,
+  },
 ]
