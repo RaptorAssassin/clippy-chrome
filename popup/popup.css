@@ -1,6 +1,15 @@
+:root {
+    --clippy-color: hsla(46, 41%, 66%, 0.75);
+}
+
 html {
     width: 450px;
     height: 400px;
+}
+
+body {
+    background-color: var(--clippy-color);
+    padding: 10px;
 }
 
 #settings-menu {
@@ -13,4 +22,9 @@ html {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    width: 100%;    
+}
+
+.setting label {
+    margin-left: auto
 }

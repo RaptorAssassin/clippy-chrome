@@ -16,6 +16,11 @@ chrome.storage.local.get('settings', (data) => {
 
 document.getElementById('show-hints').onchange = (e) => {
   settings = { ...settings, showHints: e.target.checked }
+  if (!e.target.checked) {
+    document.getElementById('hint-chance').disabled = true
+  } else {
+    document.getElementById('hint-chance').disabled = false
+  }
   chrome.storage.local.set({ settings })
 }
 

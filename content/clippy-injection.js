@@ -2,6 +2,23 @@ let hostEl = null
 let frame = null
 let frameLoaded = false
 let pendingMessages = []
+let requestedHeight = 340
+
+const MIN_HEIGHT = 320
+
+function clampHeight(px) {
+  const max = Math.max(MIN_HEIGHT, Math.floor(window.innerHeight * 0.9))
+  const value = Math.round(Number(px))
+  if (!Number.isFinite(value)) return MIN_HEIGHT
+  return Math.min(Math.max(value, MIN_HEIGHT), max)
+}
+
+function applyHeight(px) {
+  requestedHeight = px
+  const height = clampHeight(px) + 'px'
+  if (frame) frame.style.height = height
+  if (hostEl) hostEl.style.height = height
+}
 
 function ensureUI() {
   const existing = document.getElementById('clippy-host')
@@ -23,14 +40,14 @@ function ensureUI() {
   hostEl.style.boxShadow = 'none'
   hostEl.style.overflow = 'hidden'
   hostEl.style.width = '300px'
-  hostEl.style.height = '300px'
+  hostEl.style.height = clampHeight(requestedHeight) + 'px'
   hostEl.style.pointerEvents = 'none'
   const shadow = hostEl.attachShadow({ mode: 'open' })
   frame = document.createElement('iframe')
   frame.src = chrome.runtime.getURL('content/clippy.html')
   frame.style.border = 'none'
   frame.style.width = '300px'
-  frame.style.height = '300px'
+  frame.style.height = clampHeight(requestedHeight) + 'px'
   frame.style.background = 'transparent'
   frame.style.backgroundColor = 'transparent'
   frame.style.colorScheme = 'light'
@@ -61,6 +78,16 @@ function forwardToFrame(message) {
 }
 
 chrome.runtime.onMessage.addListener(forwardToFrame)
+
+window.addEventListener('message', (event) => {
+  if (event.source !== frame?.contentWindow) return
+  if (event.data?.type !== 'clippyResize') return
+  applyHeight(event.data.height)
+})
+
+window.addEventListener('resize', () => {
+  applyHeight(requestedHeight)
+})
 
 ensureUI()
 
