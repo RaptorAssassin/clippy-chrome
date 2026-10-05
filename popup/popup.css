@@ -1,5 +1,5 @@
 :root {
-    --clippy-color: hsla(46, 41%, 66%, 0.75);
+    --clippy-color: hsl(60, 9%, 72%);
 }
 
 html {
@@ -33,4 +33,19 @@ h1 {
 
 .setting label {
     margin-left: auto
+}
+
+
+.top-bar {
+    width: 450px;
+    height: 15px;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(22, 22, 170);
+}
+
+.top-bar p {
+    font-size: 12px;
+    font-family: serif;
+    color: black;
 }
