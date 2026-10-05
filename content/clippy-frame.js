@@ -1,4 +1,8 @@
-const ANIMATIONS = ['anims/ballspin.webm', 'anims/bounce.webm', 'anims/still.webm']
+const ANIMATIONS = [
+  'anims/ballspin.webm',
+  'anims/bounce.webm',
+  'anims/still.webm',
+]
 
 function resolveAnimation(requested) {
   const normalized =
@@ -20,8 +24,7 @@ function outerHeight(element) {
 function requestFit() {
   const hintElement = document.getElementById('hint')
   const video = document.getElementById('clippy-video')
-  const height =
-    Math.ceil(outerHeight(hintElement) + outerHeight(video)) || 300
+  const height = Math.ceil(outerHeight(hintElement) + outerHeight(video)) || 300
   window.parent.postMessage({ type: 'clippyResize', height }, '*')
 }
 
@@ -50,5 +53,44 @@ requestFit()
 
 window.addEventListener('message', (event) => {
   if (event.source !== window.parent) return
-  showHint(event.data)
+  decideIfShouldShowHint(event.data)
 })
+
+/**
+ * Removes the Google AI Overview from the search results page if the user has enabled that setting.
+ */
+function maybeRemoveAiOverview() {
+  let url
+  try {
+    url = new URL(window.location.href)
+  } catch {
+    return
+  }
+  if (!url.hostname.includes('google')) return
+  if (url.pathname !== '/search') return
+  chrome.storage.local.get('settings', (data) => {
+    const remove = data.settings?.removeAiOverview ?? true
+    if (!remove) {
+      if (url.searchParams.get('udm') !== '14') return
+      url.searchParams.delete('udm')
+      if (url.toString() !== window.location.href) {
+        window.location.replace(url.toString())
+      }
+      return
+    }
+    if (url.searchParams.has('udm')) return
+    url.searchParams.set('udm', '14')
+    window.location.replace(url.toString())
+  })
+}
+
+maybeRemoveAiOverview()
+
+function decideIfShouldShowHint(data) {
+  const settings = chrome.storage.local.get('settings')
+
+  if (!settings.showHints) return false
+  if (settings.hintChance <= 0) return false
+  if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance)
+    showHint(data)
+}
