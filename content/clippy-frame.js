@@ -2,6 +2,7 @@ const ANIMATIONS = [
   'anims/ballspin.webm',
   'anims/bounce.webm',
   'anims/still.webm',
+  'anims/gun.webm',
 ]
 
 function resolveAnimation(requested) {
@@ -9,12 +10,6 @@ function resolveAnimation(requested) {
     typeof requested === 'string' ? requested.trim().replace(/^\/+/, '') : ''
   if (normalized && ANIMATIONS.includes(normalized)) return normalized
   return ANIMATIONS[Math.floor(Math.random() * ANIMATIONS.length)]
-<<<<<<< HEAD
-  if (gun.anim == true) {
-    return ANIMATIONS[4]
-  }
-=======
->>>>>>> 8f6d59a (fix syntax errors for persistant clippy)
 }
 
 function outerHeight(element) {
@@ -64,40 +59,16 @@ window.addEventListener('message', (event) => {
   }
 })
 
-/**
- * Removes the Google AI Overview from the search results page if the user has enabled that setting.
- */
-function maybeRemoveAiOverview() {
-  let url
-  try {
-    url = new URL(window.location.href)
-  } catch {
-    return
-  }
-  if (!url.hostname.includes('google')) return
-  if (url.pathname !== '/search') return
-  chrome.storage.local.get('settings', (data) => {
-    const remove = data.settings?.removeAiOverview ?? true
-    if (!remove) {
-      if (url.searchParams.get('udm') !== '14') return
-      url.searchParams.delete('udm')
-      if (url.toString() !== window.location.href) {
-        window.location.replace(url.toString())
-      }
-      return
-    }
-    if (url.searchParams.has('udm')) return
-    url.searchParams.set('udm', '14')
-    window.location.replace(url.toString())
-  })
-}
-
-maybeRemoveAiOverview()
-
 function getHintSettings() {
   return new Promise((resolve) => {
     chrome.storage.local.get('settings', (data) => {
-      resolve(data.settings ?? { showHints: true, hintChance: 50, removeAiOverview: true })
+      resolve(
+        data.settings ?? {
+          showHints: true,
+          hintChance: 50,
+          removeAiOverview: true,
+        }
+      )
     })
   })
 }
@@ -106,16 +77,9 @@ async function decideIfShouldShowHint(data) {
   if (data?.type !== 'showHint') return false
   const settings = await getHintSettings()
 
-<<<<<<< HEAD
   if (!settings.showHints || settings.hintChance <= 0) return
   if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance)
-=======
-  if (!settings.showHints) return false
-  if (settings.hintChance <= 0) return false
-  if (settings.hintChance >= 100 || Math.random() * 100 < settings.hintChance) {
->>>>>>> be21034 (fix syntax errors for persistant clippy)
     showHint(data)
-    return true
-  }
-  return false
+  return true
 }
+return false
