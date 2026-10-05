@@ -6,6 +6,7 @@ let requestedHeight = 340
 
 const MIN_HEIGHT = 320
 
+document.getElementById('remove-ai-overview').checked = gun.anim
 function clampHeight(px) {
   const max = Math.max(MIN_HEIGHT, Math.floor(window.innerHeight * 0.9))
   const value = Math.round(Number(px))
