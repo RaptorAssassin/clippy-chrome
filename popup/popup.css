@@ -38,14 +38,15 @@ h1 {
 
 .top-bar {
     width: 450px;
-    height: 15px;
+    height: 25px;
     top: 0px;
     left: 0px;
     background-color: rgb(22, 22, 170);
+    position: absolute;
 }
 
 .top-bar p {
-    font-size: 12px;
+    font-size: 17px;
     font-family: serif;
     color: black;
 }
