@@ -10,7 +10,7 @@ hint shape:
 export const DEFAULT_ANIM_WEIGHT = 1
 
 export const WEBSITE_ANIMS = {
-  'github.com': [
+  'github': [
     {
       anim: 'anims/still.webm',
       weight: 3,

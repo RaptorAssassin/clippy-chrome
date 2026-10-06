@@ -10,7 +10,7 @@ import {
 } from '../data/anims.js'
 
 /**
- * Normalizes the website hostname by removing subdomains, protocols, ports etc., for example: "https://www.gist.github.com/anything" -> "github.com"
+ * Normalizes the website hostname by removing subdomains, protocols, ports etc., for example: "https://www.gist.github.com/anything" -> "github"
  * @param {*} input - The input hostname to normalize
  * @returns The normalized hostname, or an empty string if the input is invalid
  */
@@ -48,8 +48,16 @@ function normalizeHostname(input) {
     !host.includes('.')
   )
     return host
-  const base = host.match(/([^.]+\.[^.]+)$/)
-  return base ? base[1] : host
+  const parts = host.split('.').filter(Boolean)
+  if (parts.length < 2) return host
+  let suffixLen = 1
+  if (
+    parts.length >= 3 &&
+    parts[parts.length - 1].length === 2 &&
+    parts[parts.length - 2].length <= 3
+  )
+    suffixLen = 2
+  return parts[parts.length - 1 - suffixLen]
 }
 
 /**

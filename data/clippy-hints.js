@@ -16,15 +16,9 @@ export const AI_HINTS = [
   },
 ]
 
-export const CLAUDE_HINTS = [
-  ...AI_HINTS,
-  { message: 'Claude is a great AI, but I am better!', weight: 1 },
-  { message: "I love hanging out with Clawd, he's a great guy!", weight: 1 },
-]
-
 export const WEBSITE_HINTS = {
   // AI sites
-  'chatgpt.com': [
+  chatgpt: [
     ...AI_HINTS,
     {
       message: 'GET OFF CHATGPT.',
@@ -35,9 +29,18 @@ export const WEBSITE_HINTS = {
       weight: 2,
     },
   ],
-  'claude.com': [...CLAUDE_HINTS],
-  'claude.ai': [...CLAUDE_HINTS],
-  'deepseek.com': [
+  claude: [
+    ...AI_HINTS,
+    {
+      message: 'Claude is a great AI, but I am better!',
+      weight: 1,
+    },
+    {
+      message: "I love hanging out with Clawd, he's a great guy!",
+      weight: 1,
+    },
+  ],
+  deepseek: [
     ...AI_HINTS,
     {
       message:
@@ -45,7 +48,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
-  'copilot.com': [
+  copilot: [
     {
       message: 'Copilot... I am your father',
       weight: 1,
@@ -57,7 +60,7 @@ export const WEBSITE_HINTS = {
   ],
 
   // Other sites
-  'github.com': [
+  github: [
     {
       message:
         "Did you know? If you name a repository the same name as your GitHub username, it's README.md file will be displayed on your profile page.",
@@ -74,7 +77,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
-  'youtube.com': [
+  youtube: [
     {
       message: 'Tomska > Mr. Beast',
       weight: 1,
@@ -97,7 +100,7 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
   ],
-  'makerworld.com': [
+  makerworld: [
     {
       message: 'You should use printables.com',
       weight: 1,
@@ -107,7 +110,7 @@ export const WEBSITE_HINTS = {
       weight: 2,
     },
   ],
-  'hackclub.com': [
+  hackclub: [
     {
       message: 'YAYAYAYAYAYAYAYAYAY',
       weight: 1,
@@ -117,7 +120,7 @@ export const WEBSITE_HINTS = {
       weight: 2,
     },
   ],
-  'onshape.com': [
+  onshape: [
     {
       message: 'Onshape is peak',
       weight: 1,
@@ -128,7 +131,7 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
   ],
-  'amazon.com': [
+  amazon: [
     {
       message: 'R E T A I L  T H E R A P Y',
       weight: 2,
@@ -138,7 +141,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
-  'fullcontrol.xyz': [
+  fullcontrol: [
     {
       message:
         'Fullcontrol allows you to generate gCodes that let you print without layers!',
