@@ -108,7 +108,17 @@ export const WEBSITE_HINTS = {
       message: 'jeffry... jeffry bezos',
       weight: 1,
     }
-  ]
+  ],
+  'fullcontrol.xyz': [
+    {
+      message: 'Fullcontrol allows you to generate gCodes that let you print without layers!',
+      weight: 2,
+    }
+    {
+      message: 'peak',
+      weight: 1,
+    }
+  ],
 }
 
 export const DEFAULT_HINTS = [
