@@ -58,12 +58,66 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
   ],
+  'makerworld.com': [
+    {
+      message: 'You should use printables.com',
+      weight: 1,
+    }
+    {
+      message: '🐼️🥼️ = Bambu Labs',
+      weight: 2,
+    }
+  ],
+  'copilot.microsoft.com' : [
+    {
+      message: 'Copilot... I am your father',
+      weight: 1,
+    }
+    {
+      message: 'say hi to copiilot for me',
+      weight: 2,
+    }
+  ],
+  'hackclub.com': [
+    {
+      message: 'YAYAYAYAYAYAYAYAYAY',
+      weight: 1,
+    }
+    {
+      message: 'JOIN HACKCLUB NOW (if ur a teen) ',
+      weight: 2,
+    }
+    
+  ],
+  'onshape.com': [
+    {
+      message: 'Onshape is peak',
+      weight: 1,
+    }
+    {
+      message: 'Fun fact: in onshape, you can import from any public onshape document! Just select "Import Derived", "Other", "Public", and search for what you want!',
+      weight: 3,
+    }
+  ],
+  'amazon.com': [
+    {
+      message: 'R E T A I L  T H E R A P Y',
+      weight: 2,
+    }
+    {
+      message: 'jeffry... jeffry bezos',
+      weight: 1,
+    }
+  ]
 }
 
 export const DEFAULT_HINTS = [
   {
     message:
       'Did you know? You can use the Clippy extension to get "helpful" hints on any website you visit.',
+    weight: 3,
+    message: 
+      'Do your homework!',
     weight: 1,
   },
 ]
