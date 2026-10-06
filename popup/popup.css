@@ -42,7 +42,7 @@ h1 {
     top: 0px;
     left: 0px;
     background-image: linear-gradient(to right, #1100ff, #3e72ff);
-    position: relative;
+    position: fixed;
     font-size: 17px;
     font-family: sans-serif;
     color: white;
