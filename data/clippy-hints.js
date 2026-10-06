@@ -152,6 +152,19 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
+  steam: [
+    {
+      message: 'Big Gabe is always watching',
+      weight: '1'
+    }
+  ],
+  ankergames: [
+    {
+      message: 'YAR HAR HAR',
+      weight: '1'
+    }
+
+  ]
 }
 
 export const DEFAULT_HINTS = [
