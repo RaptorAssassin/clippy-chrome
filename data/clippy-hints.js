@@ -50,7 +50,7 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
     {
-      message: 'Subscribe to @Cow_Aeronautics and @',
+      message: 'Subscribe to @Cow_Aeronautics and @karl-albrecht',
       weight: 3,
     },
     {
@@ -63,7 +63,7 @@ export const WEBSITE_HINTS = {
 export const DEFAULT_HINTS = [
   {
     message:
-      'Did you know? You can use the Clippy extension to get helpful hints on any website you visit.',
+      'Did you know? You can use the Clippy extension to get "helpful" hints on any website you visit.',
     weight: 1,
   },
 ]
