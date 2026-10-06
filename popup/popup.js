@@ -34,3 +34,7 @@ document.getElementById('remove-ai-overview').onchange = (e) => {
   settings = { ...settings, removeAiOverview: e.target.checked }
   chrome.storage.local.set({ settings })
 }
+
+document.getElementById('close-button').onclick = () => {
+  window.close()
+}
