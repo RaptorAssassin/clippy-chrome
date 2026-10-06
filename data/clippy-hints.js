@@ -138,17 +138,16 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
-    }
-  ],
   'fullcontrol.xyz': [
     {
-      message: 'Fullcontrol allows you to generate gCodes that let you print without layers!',
+      message:
+        'Fullcontrol allows you to generate gCodes that let you print without layers!',
       weight: 2,
-    }
+    },
     {
       message: 'peak',
       weight: 1,
-    }
+    },
   ],
 }
 
