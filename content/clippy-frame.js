@@ -3,6 +3,7 @@ const ANIMATIONS = [
   'anims/bounce.webm',
   'anims/still.webm',
   'anims/gun.webm',
+  'anims/unfold.webm',
 ]
 
 function resolveAnimation(requested) {
