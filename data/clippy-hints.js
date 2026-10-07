@@ -58,12 +58,22 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
+  grok: [
+    {
+      message: '*clippy grows agitated*',
+      weight: 1
+    },
+    {
+      message: 'EVEN CHATGPT IS BETTER THAN THIS.',
+      weight: 1
+    }
+  ],
 
   // Dev sites
   github: [
     {
       message:
-        "Did you know? If you name a repository the same name as your GitHub username, it's README.md file will be displayed on your profile page.",
+        "Did you know? If you name a repository the same name as your GitHub username, it's README.md file will be displayed on your profile page, and if you host with Github Pages, it will have no / in the URL!",
       weight: 1,
     },
     {
@@ -119,6 +129,13 @@ export const WEBSITE_HINTS = {
   ],
 
   // Social media
+
+  slack: [
+    {
+      message: 'Slack was originally created as an interal messaging app for a failed browser game, but the devs liked it so much, they made it public!',
+      weight: 1,
+    }
+  ],
   youtube: [
     {
       message: 'Tomska > Mr. Beast',
@@ -130,12 +147,12 @@ export const WEBSITE_HINTS = {
     },
     {
       message:
-        "The first Youtube video is titled 'Me at the zoo'. It shows the creator in the Zoo, talking about elephants.",
+        "The first Youtube video is titled 'Me at the zoo'. It shows jawed in the Zoo, talking about elephants.",
       weight: 1,
     },
     {
-      message: 'Subscribe to @Cow_Aeronautics and @karl-albrecht',
-      weight: 1,
+      message: 'Subscribe to @Cow_aeronautics and @karl-albrecht',
+      weight: 2,
     },
     {
       message: 'stop scrolling pls',
@@ -226,6 +243,44 @@ export const WEBSITE_HINTS = {
       weight: '1',
     },
   ],
+  aliexpress: [
+    {
+      message: 'Fun fact! Aliexpress is a part of Alibaba, an online wholesale',
+      weight: 1,
+    }
+  ],
+  elegoo: [
+    {
+      message: 'YAYAY ELEGOO IS PEAK',
+      weight: 1,
+    },
+    {
+      message: 'While known for their 3D printers, Elegoo also manufactures excellent Arduino devboards. You should check them out!',
+      weight: 3,
+    },
+  ],
+  nvidia: [
+    {
+      message: 'Team red all the way!',
+      weight: 1,
+    },
+  ],
+  samsung: [
+    {
+      message: 'smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. ',
+      weight: 1,
+    },
+    {
+      message: 'Fun(?) fact! Different devisions of Samsung make Tanks, Cargo ships, and THE BURJ KHALIFA. THE TALLEST TOWER IN THE WORLD IS SAMSUNG',
+      weight: 5,
+    },
+  ],
+  pkcell: [
+    {
+      message: 'OH MY PKCELLS (peak reference)'
+    }
+  ],
+  
 }
 
 export const DEFAULT_HINTS = [
@@ -252,7 +307,7 @@ export const DEFAULT_HINTS = [
   },
   {
     message:
-      "Little history funfact: I was first created in 1997, but removed in 2007 for being 'too annoying', but I am back now, and better than ever!",
+      "Little history fun fact: I was first created in 1997, but removed in 2007 for being 'too annoying', but I am back now, and better than ever!",
     weight: 3,
   },
 
