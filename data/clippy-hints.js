@@ -93,9 +93,32 @@ export const WEBSITE_HINTS = {
       message: 'Have you beaten the daily problem yet?',
       weight: 1,
     },
+    {
+      message: 'Who even does SQL problems on LeetCode?',
+      weight: 1,
+    },
+  ],
+  neetcode: [
+    {
+      message: 'Good luck grinding!',
+      weight: 1,
+    },
+    {
+      message: 'NeetCode is the better LeetCode.',
+      weight: 1,
+    },
+    {
+      message:
+        "You need to check out NeetCode's YouTube channel for explanation videos, it's great!",
+      weight: 1,
+    },
+    {
+      message: 'I love NeetCode 150',
+      weight: 1,
+    },
   ],
 
-  // Other sites
+  // Social media
   youtube: [
     {
       message: 'Tomska > Mr. Beast',
@@ -119,6 +142,26 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
   ],
+  tiktok: [
+    {
+      message: 'Stop scrolling!',
+      weight: 1,
+    },
+  ],
+  instagram: [
+    {
+      message: 'Are you doomscrolling reels? Stop it!',
+      weight: 1,
+    },
+  ],
+  facebook: [
+    {
+      message: 'Are you a boomer by any chance? What are you doing on here?',
+      weight: 1,
+    },
+  ],
+
+  // Other sites
   makerworld: [
     {
       message: 'You should use printables.com',
@@ -174,16 +217,15 @@ export const WEBSITE_HINTS = {
   steam: [
     {
       message: 'Big Gabe is always watching',
-      weight: '1'
-    }
+      weight: '1',
+    },
   ],
   ankergames: [
     {
       message: 'YAR HAR HAR',
-      weight: '1'
-    }
-
-  ]
+      weight: '1',
+    },
+  ],
 }
 
 export const DEFAULT_HINTS = [
