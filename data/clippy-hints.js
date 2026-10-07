@@ -59,7 +59,7 @@ export const WEBSITE_HINTS = {
     },
   ],
 
-  // Other sites
+  // Dev sites
   github: [
     {
       message:
@@ -77,13 +77,32 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
+  stackoverflow: [
+    {
+      message:
+        'Still using Stack Overflow? You must be one of the last people to do so. This used to be the go-to place for devs!',
+      weight: 1,
+    },
+  ],
+  leetcode: [
+    {
+      message: 'Good luck grinding!',
+      weight: 1,
+    },
+    {
+      message: 'Have you beaten the daily problem yet?',
+      weight: 1,
+    },
+  ],
+
+  // Other sites
   youtube: [
     {
       message: 'Tomska > Mr. Beast',
       weight: 1,
     },
     {
-      message: "You can only 'hype' a video on mobile",
+      message: 'You can only "hype" a video on mobile',
       weight: 3,
     },
     {
@@ -168,14 +187,20 @@ export const DEFAULT_HINTS = [
   },
   {
     message:
-      "Little history funfact: I was first created in 1997, but removed in 2007 for being 'too annoying', but I am back now, and better than ever!",
-    weight: 3,
-  },
-  {
-    message:
       "I am an open-source project! You can find the link to my GitHub repository in the extension's settings.",
     weight: 2,
   },
+  {
+    message:
+      'Hey! If you downloaded me from the Chrome Web Store, please leave a positive review! It helps me out a lot!',
+    weight: 2,
+  },
+  {
+    message:
+      "Little history funfact: I was first created in 1997, but removed in 2007 for being 'too annoying', but I am back now, and better than ever!",
+    weight: 3,
+  },
+
   // General hints
   {
     message: 'Do your homework!',
