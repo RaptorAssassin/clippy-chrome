@@ -368,7 +368,46 @@ export const WEBSITE_HINTS = {
     }
   ],
   blooket: [
-    
+    {
+      message: "hot take: blooket > kahoot",
+      weight: 1,
+    }
+  ],
+  wendys: [
+    {
+      message: "get me some nuggs plsss",
+      weight: 1
+    }
+  ],
+  minecraft: [
+    {
+      message: "minceraft",
+      weight: 1
+    }
+  ],
+  neal: [
+    {
+      message: "it may be neal, but is it fun?",
+      weight: 1
+    }
+  ],
+  geoguessr: [
+    {
+      message: "Where am I??",
+      weight: 1
+    }
+  ],
+  memorizeearth: [
+    {
+      message: "Ima memorize mars",
+      weight: 1
+    }
+  ],
+  seterra: [
+    {
+      message: "this is just worse geoguessr",
+      weight: 1
+    }
   ]
 }
 
