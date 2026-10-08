@@ -42,5 +42,9 @@ export const DEFAULT_ANIMS = [
   {
     anim: 'anims/unfold.webm',
     weight: 2
+  },
+  {
+    anim: 'anims/copter.webm',
+    weight: 2
   }
 ]
