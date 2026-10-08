@@ -37,7 +37,7 @@ From this image, we got a lot of orientation how to design our extension. We too
 
 We decided to style the extension popup similar to a Windows 98 window, from the era where Clippy is from. The gradient colors for the title bar are inspired by [Win98js](https://98.js.org/).
 
-[<img width="728" height="546" alt="v4-728px-Install-Windows-98-Step-30 jpg" src="https://github.com/user-attachments/assets/3fe747f6-93a4-4660-9df5-4a262dd244bb" />
+[<img alt="v4-728px-Install-Windows-98-Step-30 jpg" src="https://github.com/user-attachments/assets/3fe747f6-93a4-4660-9df5-4a262dd244bb" />
 ](https://www.wikihow.com/Install-Windows-98)
 
-[<img width="1920" height="945" alt="98 js - Windows 98 Online" src="https://github.com/user-attachments/assets/3cd08646-6c1d-4bb9-9d07-f279e4ea71e9" />](https://98.js.org)
+[<img alt="98 js - Windows 98 Online" src="https://github.com/user-attachments/assets/3cd08646-6c1d-4bb9-9d07-f279e4ea71e9" />](https://98.js.org)
