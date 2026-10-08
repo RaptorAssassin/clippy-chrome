@@ -336,6 +336,11 @@ export const WEBSITE_HINTS = {
     message: "Glad I'm not on there...",
     weight: 1
     }
+  ],
+  printables [
+    {
+      message: "Printables is peak"
+    }
   ]
 }
 
