@@ -6,6 +6,99 @@ let requestedHeight = 340
 
 const MIN_HEIGHT = 320
 
+function normalizeHostname(input) {
+  if (typeof input !== 'string' || !input) return ''
+  const trimmed = input.trim()
+  if (!trimmed) return ''
+  let host = trimmed
+  if (/^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed)) {
+    try {
+      host = new URL(trimmed).hostname
+    } catch {
+      const match = trimmed
+        .toLowerCase()
+        .match(/^(?:[a-z][a-z0-9+.-]*:\/\/)?([^/:?#@]+)/)
+      host = match ? match[1].split('@').pop() : trimmed
+    }
+  } else {
+    const match = trimmed.toLowerCase().match(/^([^/:?#@]+)/)
+    host = match ? match[1].split('@').pop() : trimmed
+  }
+  host = host.toLowerCase()
+  if (host.startsWith('[')) {
+    const end = host.indexOf(']')
+    return end !== -1 ? host.slice(1, end) : host
+  }
+  host = host.split(':')[0]
+  host = host.replace(/^\.+|\.+$/g, '')
+  host = host.replace(/^www\./, '')
+  if (!host) return ''
+  if (
+    host === 'localhost' ||
+    /^\d{1,3}(\.\d{1,3}){3}$/.test(host) ||
+    !host.includes('.')
+  )
+    return host
+  const parts = host.split('.').filter(Boolean)
+  if (parts.length < 2) return host
+  let suffixLen = 1
+  if (
+    parts.length >= 3 &&
+    parts[parts.length - 1].length === 2 &&
+    parts[parts.length - 2].length <= 3
+  )
+    suffixLen = 2
+  return parts[parts.length - 1 - suffixLen]
+}
+
+function sanitizeBlacklist(list) {
+  if (!Array.isArray(list)) return []
+  const out = []
+  for (const entry of list) {
+    const normalized = normalizeHostname(entry)
+    if (normalized && !out.includes(normalized)) out.push(normalized)
+  }
+  return out
+}
+
+let blockedHosts = []
+let blockedLoaded = false
+
+function isCurrentHostBlocked() {
+  const current = normalizeHostname(window.location.hostname)
+  if (!current) return false
+  return blockedHosts.includes(current)
+}
+
+function removeHost() {
+  document.getElementById('clippy-host')?.remove()
+  hostEl = null
+  frame = null
+  frameLoaded = false
+  pendingMessages = []
+}
+
+chrome.storage.local.get('settings', (data) => {
+  blockedHosts = sanitizeBlacklist(data.settings?.blacklistedPages)
+  blockedLoaded = true
+  if (isCurrentHostBlocked()) {
+    removeHost()
+  } else {
+    ensureUI()
+  }
+})
+
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area !== 'local' || !changes.settings) return
+  blockedHosts = sanitizeBlacklist(changes.settings.newValue?.blacklistedPages)
+  blockedLoaded = true
+  if (isCurrentHostBlocked()) {
+    removeHost()
+  } else {
+    ensureUI()
+  }
+})
+
 
 function clampHeight(px) {
   const max = Math.max(MIN_HEIGHT, Math.floor(window.innerHeight * 0.9))
@@ -68,14 +161,34 @@ function ensureUI() {
   ;(document.body || document.documentElement).appendChild(hostEl)
 }
 
-function forwardToFrame(message) {
-  if (message?.type !== 'showHint' || typeof message.hint !== 'string') return
+function deliverToFrame(message) {
   ensureUI()
   if (!frameLoaded || !frame?.contentWindow) {
     pendingMessages.push(message)
     return
   }
   frame.contentWindow.postMessage(message, '*')
+}
+
+function forwardToFrame(message) {
+  if (message?.type !== 'showHint' || typeof message.hint !== 'string') return
+  if (!blockedLoaded) {
+    chrome.storage.local.get('settings', (data) => {
+      blockedHosts = sanitizeBlacklist(data.settings?.blacklistedPages)
+      blockedLoaded = true
+      if (isCurrentHostBlocked()) {
+        removeHost()
+        return
+      }
+      deliverToFrame(message)
+    })
+    return
+  }
+  if (isCurrentHostBlocked()) {
+    removeHost()
+    return
+  }
+  deliverToFrame(message)
 }
 
 chrome.runtime.onMessage.addListener(forwardToFrame)
@@ -89,8 +202,6 @@ window.addEventListener('message', (event) => {
 window.addEventListener('resize', () => {
   applyHeight(requestedHeight)
 })
-
-ensureUI()
 
 function maybeRemoveAiOverview() {
   let url
