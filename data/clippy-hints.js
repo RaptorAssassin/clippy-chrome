@@ -337,7 +337,7 @@ export const WEBSITE_HINTS = {
     weight: 1
     }
   ],
-  printables [
+  printables: [
     {
       message: "Printables is peak"
     }
