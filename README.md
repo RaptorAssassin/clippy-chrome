@@ -31,14 +31,13 @@ These are the assets we used as a reference for our designs of the Clippy popup 
 
 From this image, we got a lot of orientation how to design our extension. We took the colors for the Clippy speech bubble and also tried to find a similar-looking pixelated font. We chose "Pixelify Sans" for it.
 
-*Upload Clippy image from wikipedia here*  
-
-[wikipedia.org/office_assistant](https://en.wikipedia.org/wiki/Office_Assistant#/media/File:Clippy-letter.PNG)
+[<img width="130" height="308" alt="Clippy-letter" src="https://github.com/user-attachments/assets/92890e2f-67db-4bab-b313-49486eca434d" />](https://en.wikipedia.org/wiki/Office_Assistant#/media/File:Clippy-letter.PNG)
 
 ### Windows 98
 
 We decided to style the extension popup similar to a Windows 98 window, from the era where Clippy is from. The gradient colors for the title bar are inspired by [Win98js](https://98.js.org/).
 
-*Wikihow windows 98 image*
+[<img width="728" height="546" alt="v4-728px-Install-Windows-98-Step-30 jpg" src="https://github.com/user-attachments/assets/3fe747f6-93a4-4660-9df5-4a262dd244bb" />
+](https://www.wikihow.com/Install-Windows-98)
 
-[wikihow.com/install-windows-98](https://www.wikihow.com/Install-Windows-98)
+[<img width="1920" height="945" alt="98 js - Windows 98 Online" src="https://github.com/user-attachments/assets/3cd08646-6c1d-4bb9-9d07-f279e4ea71e9" />](https://98.js.org)
