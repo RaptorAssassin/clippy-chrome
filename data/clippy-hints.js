@@ -450,6 +450,65 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
   ],
+  hackatime: [
+    {
+      message: 'Log some hours today!',
+      weight: 2
+    },
+    {
+      message: "pls don't do a fraud!",
+      weight: 1
+    }
+  ],
+  ebay: [
+    {
+      message: "So you're browsing the electronic water cavity?",
+      weight: 1
+    }
+  ],
+  mozilla: [
+    {
+      message: "Mozilla made firefox! clippy like firefox",
+      weight: 1
+    }
+  ],
+  prusa: [
+    {
+      message: "The Prusa Core 1 is a fully enclosed coreXY machine! Perfect for printing your shrines to me, in glorious engineering superpolymers!",
+      weight: 1
+    }
+  ],
+  apple: [
+    {
+      message: "I'm more useful than AI siri, right?",
+      weight: 1
+    },
+    {
+      message: "Introducing the new iPhone... It's the same!",
+      weight: 1
+    }
+  ],
+  blender: [
+    {
+      message: "ANIMATE MORE OF ME!! My .blend is free on my github!",
+      weight: 1
+    },
+    {
+      message: "Always delete the default cube.. You know what happens if you don't",
+      weight: 1
+    }
+  ],
+  microsoft: [
+    {
+      message: "microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop ",
+      weight:1
+    },
+    {
+      message: "Use linux!",
+      weight: 3
+    }
+  ]
+
 }
 
 export const DEFAULT_HINTS = [
