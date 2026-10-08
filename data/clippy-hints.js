@@ -61,13 +61,14 @@ export const WEBSITE_HINTS = {
   grok: [
     {
       message: '*clippy grows agitated*',
-      weight: 1
+      weight: 1,
     },
     {
       message: 'EVEN CHATGPT IS BETTER THAN THIS.',
-      weight: 1
-    }
+      weight: 1,
+    },
   ],
+  gemini: [...AI_HINTS],
 
   // Dev sites
   github: [
@@ -129,22 +130,26 @@ export const WEBSITE_HINTS = {
   ],
 
   // Social media
-
-  
   slack: [
     {
-      message: 'Slack was originally created as an interal messaging app for a failed browser game, but the devs liked it so much, they made it public!',
+      message:
+        'Slack was originally created as an interal messaging app for a failed browser game, but the devs liked it so much, they made it public!',
+      weight: 1,
+    },
+    {
+      message: 'I prefer MS Teams, but Slack looks pretty solid as well',
       weight: 1,
     },
   ],
   discord: [
     {
-      message: 'Before becoming a quintessential gaming app, Discord was just an in game chat feature for the mobile game "Fates Forever"!',
+      message:
+        'Before becoming a quintessential gaming app, Discord was just an in game chat feature for the mobile game "Fates Forever"!',
       weight: 2,
     },
     {
       message: 'Say hi to Wumpus for me!',
-      weight: 1
+      weight: 1,
     },
   ],
   youtube: [
@@ -247,6 +252,10 @@ export const WEBSITE_HINTS = {
       message: 'jeffry... jeffry bezos',
       weight: 1,
     },
+    {
+      message: 'Buy some new paperclips!',
+      weight: 1,
+    },
   ],
   fullcontrol: [
     {
@@ -269,7 +278,7 @@ export const WEBSITE_HINTS = {
     {
       message: 'Fun fact! Aliexpress is a part of Alibaba, an online wholesale',
       weight: 1,
-    }
+    },
   ],
   elegoo: [
     {
@@ -277,7 +286,8 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message: 'While known for their 3D printers, Elegoo also manufactures excellent Arduino devboards. You should check them out!',
+      message:
+        'While known for their 3D printers, Elegoo also manufactures excellent Arduino devboards. You should check them out!',
       weight: 3,
     },
   ],
@@ -286,136 +296,166 @@ export const WEBSITE_HINTS = {
       message: 'Team red all the way!',
       weight: 1,
     },
+    {
+      message:
+        'Why are you looking for a graphics card when you can have Clippy even on a simple office PC?!',
+      weight: 1,
+    },
   ],
   samsung: [
     {
-      message: 'smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. ',
+      message:
+        'smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. ',
       weight: 1,
     },
     {
-      message: 'Fun(?) fact! Different devisions of Samsung make Tanks, Cargo ships, and THE BURJ KHALIFA. THE TALLEST TOWER IN THE WORLD IS SAMSUNG',
+      message:
+        'Fun(?) fact! Different devisions of Samsung make Tanks, Cargo ships, and THE BURJ KHALIFA. THE TALLEST TOWER IN THE WORLD IS SAMSUNG',
       weight: 5,
     },
   ],
   pkcell: [
     {
       message: 'OH MY PKCELLS (peak reference)',
-    weight: 1
-    }
+      weight: 1,
+    },
   ],
   bing: [
     {
       message: 'erm.. let me bing that real quick',
-    weight: 1
-    }
+      weight: 1,
+    },
   ],
   wikipedia: [
     {
-    message: "DONATE TO WIKIPEDIA",
-    weight: 1
-    }
+      message: 'Can I assist you with your research?',
+      weight: 1,
+    },
   ],
   weather: [
     {
       message: "Today's forcast: Cloudy with a chance of Slop",
-      weight: 1
-    }
+      weight: 1,
+    },
+    {
+      message: "Let's hope it doesn't rain!",
+      weight: 1,
+    },
   ],
   walmart: [
     {
-      message: "Visiting the barrier shoppe, I see",
-      weight: 1
+      message: 'Visiting the barrier shoppe, I see',
+      weight: 1,
     },
     {
-      message: "Walmart's mascot, smiley, was made in the 90s, retired from 2006-2016, and is here to help you shop again today",
-      weight: 3
+      message:
+        "Walmart's mascot, smiley, was made in the 90s, retired from 2006-2016, and is here to help you shop again today",
+      weight: 3,
     },
   ],
   theuslessweb: [
     {
-    message: "Glad I'm not on there...",
-    weight: 1
-    }
+      message: "Glad I'm not on there...",
+      weight: 1,
+    },
   ],
   printables: [
     {
-      message: "Printables is peak",
-      weight:1
+      message: 'Printables is peak',
+      weight: 1,
     },
   ],
   modrinth: [
     {
-      message: "Create Aeronautics is the best mod ever",
-      weight: 1
+      message: 'Create Aeronautics is the best mod ever',
+      weight: 1,
     },
   ],
   curseforge: [
     {
-      message: "Modrinth > Curseforge",
-      weight: 1
+      message: 'Modrinth > Curseforge',
+      weight: 1,
     },
   ],
   firstinspires: [
     {
-      message: "You should join your local first team!",
-      weight: 1
+      message: 'You should join your local first team!',
+      weight: 1,
     },
   ],
   mcdonalds: [
     {
       message: "ba-da-ba-ba-ba, I'm lovin' it",
-      weight: 1
-    }
+      weight: 1,
+    },
   ],
   blooket: [
     {
-      message: "hot take: blooket > kahoot",
+      message: 'hot take: blooket > kahoot',
       weight: 1,
-    }
+    },
   ],
   wendys: [
     {
-      message: "get me some nuggs plsss",
-      weight: 1
-    }
+      message: 'get me some nuggs plsss',
+      weight: 1,
+    },
   ],
   minecraft: [
     {
-      message: "minceraft",
-      weight: 1
-    }
+      message: 'minceraft',
+      weight: 1,
+    },
+    {
+      message:
+        "I love Axolotls, they're so cute! Have you found the rare colored one yet?",
+      weight: 1,
+    },
+    {
+      message: 'zshhhhh... BOOM!',
+      weight: 1,
+    },
   ],
   neal: [
     {
-      message: "it may be neal, but is it fun?",
-      weight: 1
-    }
+      message: 'it may be neal, but is it fun?',
+      weight: 1,
+    },
   ],
   geoguessr: [
     {
-      message: "Where am I??",
-      weight: 1
-    }
+      message: 'Where am I??',
+      weight: 1,
+    },
   ],
   memorizeearth: [
     {
-      message: "Ima memorize mars",
-      weight: 1
-    }
+      message: 'Ima memorize mars',
+      weight: 1,
+    },
   ],
   seterra: [
     {
-      message: "this is just worse geoguessr",
-      weight: 1
-    }
-  ]
+      message: 'this is just worse geoguessr',
+      weight: 1,
+    },
+  ],
+  excalidraw: [
+    {
+      message: 'What are you drawing? Maybe draw me a little paperclip buddy?',
+      weight: 1,
+    },
+    {
+      message: 'What are you planning?',
+      weight: 1,
+    },
+  ],
 }
 
 export const DEFAULT_HINTS = [
   // Clippy-related hints
   {
-    message:
-    "pls don't disable me",
+    message: "pls don't disable me",
     weight: 1,
   },
   {
@@ -449,5 +489,4 @@ export const DEFAULT_HINTS = [
     message: 'Do your homework!',
     weight: 1,
   },
-  
 ]
