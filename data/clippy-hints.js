@@ -331,7 +331,7 @@ export const WEBSITE_HINTS = {
       weight: 3
     },
   ],
-  theuslessweb [
+  theuslessweb: [
     {
     message: "Glad I'm not on there...",
     weight: 1
