@@ -162,6 +162,23 @@ export const WEBSITE_HINTS = {
   ],
 
   // Other sites
+  steampowered: [
+    // Steam
+    {
+      message: 'Steam Sales are goated',
+      weight: 1,
+    },
+    {
+      message: 'Has anyone made a cool Clippy game yet?',
+      weight: 1,
+    },
+  ],
+  pcpartpicker: [
+    {
+      message: "Let's build a cool PC!",
+      weight: 1,
+    },
+  ],
   makerworld: [
     {
       message: 'You should use printables.com',
@@ -212,12 +229,6 @@ export const WEBSITE_HINTS = {
     {
       message: 'peak',
       weight: 1,
-    },
-  ],
-  steam: [
-    {
-      message: 'Big Gabe is always watching',
-      weight: '1',
     },
   ],
   ankergames: [
