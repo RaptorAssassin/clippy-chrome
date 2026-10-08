@@ -130,11 +130,22 @@ export const WEBSITE_HINTS = {
 
   // Social media
 
+  
   slack: [
     {
       message: 'Slack was originally created as an interal messaging app for a failed browser game, but the devs liked it so much, they made it public!',
       weight: 1,
-    }
+    },
+  ],
+  discord: [
+    {
+      message: 'Before becoming a quintessential gaming app, Discord was just an in game chat feature for the mobile game "Fates Forever"!',
+      weight: 2,
+    },
+    {
+      message: 'Say hi to Wumpus for me!',
+      weight: 1
+    },
   ],
   youtube: [
     {
@@ -288,14 +299,53 @@ export const WEBSITE_HINTS = {
   ],
   pkcell: [
     {
-      message: 'OH MY PKCELLS (peak reference)'
+      message: 'OH MY PKCELLS (peak reference)',
+    weight: 1
     }
   ],
-  
+  bing: [
+    {
+      message: 'erm.. let me bing that real quick',
+    weight: 1
+    }
+  ],
+  wikipedia: [
+    {
+    message: "DONATE TO WIKIPEDIA",
+    weight: 1
+    }
+  ],
+  weather: [
+    {
+      message: "Today's forcast: Cloudy with a chance of Slop",
+      weight: 1
+    }
+  ],
+  walmart: [
+    {
+      message: "Visiting the barrier shoppe, I see",
+      weight: 1
+    },
+    {
+      message: "Walmart's mascot, smiley, was made in the 90s, retired from 2006-2016, and is here to help you shop again today",
+      weight: 3
+    },
+  ],
+  theuslessweb [
+    {
+    message: "Glad I'm not on there...",
+    weight: 1
+    }
+  ]
 }
 
 export const DEFAULT_HINTS = [
   // Clippy-related hints
+  {
+    message:
+    "pls don't disable me",
+    weight: 1,
+  },
   {
     message:
       'Did you know? You can use the Clippy extension to get "helpful" hints on any website you visit.',
@@ -327,4 +377,5 @@ export const DEFAULT_HINTS = [
     message: 'Do your homework!',
     weight: 1,
   },
+  
 ]
