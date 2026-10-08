@@ -339,8 +339,36 @@ export const WEBSITE_HINTS = {
   ],
   printables: [
     {
-      message: "Printables is peak"
+      message: "Printables is peak",
+      weight:1
+    },
+  ],
+  modrinth: [
+    {
+      message: "Create Aeronautics is the best mod ever",
+      weight: 1
+    },
+  ],
+  curseforge: [
+    {
+      message: "Modrinth > Curseforge",
+      weight: 1
+    },
+  ],
+  firstinspires: [
+    {
+      message: "You should join your local first team!",
+      weight: 1
+    },
+  ],
+  mcdonalds: [
+    {
+      message: "ba-da-ba-ba-ba, I'm lovin' it",
+      weight: 1
     }
+  ],
+  blooket: [
+    
   ]
 }
 
