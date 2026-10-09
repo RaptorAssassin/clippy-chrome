@@ -9,6 +9,10 @@ import {
   DEFAULT_ANIM_WEIGHT,
 } from '../data/anims.js'
 
+const SITE_HINT_BOOST = 3
+
+const RECENT_HINT_COUNT = 10
+
 /**
  * Normalizes the website hostname by removing subdomains, protocols, ports etc., for example: "https://www.gist.github.com/anything" -> "github"
  * @param {*} input - The input hostname to normalize
@@ -65,8 +69,7 @@ function normalizeHostname(input) {
  * @param {*} hostname The hostname to get a hint for
  * @returns The hint message, or null if there are no hints
  */
-function getRandomHint(hostname) {
-  const hints = WEBSITE_HINTS[normalizeHostname(hostname)] || DEFAULT_HINTS
+function pickWeightedHint(hints) {
   if (!hints.length) return null
   const totalWeight = hints.reduce(
     (sum, hint) => sum + Math.max(0, hint.weight ?? DEFAULT_WEIGHT),
@@ -83,6 +86,48 @@ function getRandomHint(hostname) {
   return hints[hints.length - 1]?.message ?? null
 }
 
+function chooseHintPool(hostname) {
+  const siteHints = WEBSITE_HINTS[normalizeHostname(hostname)] || []
+  if (!siteHints.length) return DEFAULT_HINTS
+  if (Math.random() < SITE_HINT_BOOST / (SITE_HINT_BOOST + 1))
+    return siteHints
+  return DEFAULT_HINTS
+}
+
+function getRandomHint(hostname) {
+  return pickWeightedHint(chooseHintPool(hostname))
+}
+
+function getRecentHints() {
+  return chrome.storage.local.get('recentHints').then((data) =>
+    Array.isArray(data.recentHints)
+      ? data.recentHints.filter((hint) => typeof hint === 'string')
+      : []
+  )
+}
+
+function pushRecentHint(hint) {
+  return getRecentHints().then((recent) => {
+    const updated = [...recent.filter((entry) => entry !== hint), hint].slice(
+      -RECENT_HINT_COUNT
+    )
+    return chrome.storage.local.set({ recentHints: updated })
+  })
+}
+
+async function getFreshHint(hostname) {
+  try {
+    const recent = await getRecentHints()
+    const pool = chooseHintPool(hostname)
+    const fresh = pool.filter((hint) => !recent.includes(hint.message))
+    const hint = pickWeightedHint(fresh.length ? fresh : pool)
+    if (typeof hint === 'string') await pushRecentHint(hint)
+    return hint
+  } catch {
+    return getRandomHint(hostname)
+  }
+}
+
 function sendHint(tabId, message, retries = 1) {
   chrome.tabs.sendMessage(tabId, message).catch(() => {
     if (retries > 0) {
@@ -96,11 +141,12 @@ chrome.webNavigation.onCompleted.addListener(
     if (details.frameId !== 0) return
     const url = details.url
     const normalized = normalizeHostname(url)
-    const hint = getRandomHint(url)
     const anim = getRandomAnim(url)
-    if (!hint) return
-    console.log(`Hint for ${normalized}: ${hint}`)
-    sendHint(details.tabId, { type: 'showHint', hint, anim })
+    getFreshHint(url).then((hint) => {
+      if (!hint) return
+      console.log(`Hint for ${normalized}: ${hint}`)
+      sendHint(details.tabId, { type: 'showHint', hint, anim })
+    })
   },
   { url: [{ schemes: ['http', 'https'] }] }
 )

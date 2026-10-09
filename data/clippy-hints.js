@@ -43,8 +43,7 @@ export const WEBSITE_HINTS = {
   deepseek: [
     ...AI_HINTS,
     {
-      message:
-        "Taiwan's a countr... Sorry, this is beyond my current scope. Let's talk about something else.",
+      message: "Taiwan's a countr... Sorry, this is beyond my current scope. Let's talk about something else.",
       weight: 1,
     },
   ],
@@ -78,20 +77,17 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        "You can use GitHub's 'gist' feature to share code snippets with other devs. Just go to gist.github.com and create a new gist.",
+      message: "You can use GitHub's 'gist' feature to share code snippets with other devs. Just go to gist.github.com and create a new gist.",
       weight: 1,
     },
     {
-      message:
-        "If you're a student, check out the Github Student Developer Pack! There are a lot of free tools and learning resources for you to check out.",
+      message: "If you're a student, check out the Github Student Developer Pack! There are a lot of free tools and learning resources for you to check out.",
       weight: 1,
     },
   ],
   stackoverflow: [
     {
-      message:
-        'Still using Stack Overflow? You must be one of the last people to do so. This used to be the go-to place for devs!',
+      message: 'Still using Stack Overflow? You must be one of the last people to do so. This used to be the go-to place for devs!',
       weight: 1,
     },
   ],
@@ -119,8 +115,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        "You need to check out NeetCode's YouTube channel for explanation videos, it's great!",
+      message: "You need to check out NeetCode's YouTube channel for explanation videos, it's great!",
       weight: 1,
     },
     {
@@ -132,8 +127,7 @@ export const WEBSITE_HINTS = {
   // Social media
   slack: [
     {
-      message:
-        'Slack was originally created as an interal messaging app for a failed browser game, but the devs liked it so much, they made it public!',
+      message: 'Slack was originally created as an interal messaging app for a failed browser game, but the devs liked it so much, they made it public!',
       weight: 1,
     },
     {
@@ -143,8 +137,7 @@ export const WEBSITE_HINTS = {
   ],
   discord: [
     {
-      message:
-        'Before becoming a quintessential gaming app, Discord was just an in game chat feature for the mobile game "Fates Forever"!',
+      message: 'Before becoming a quintessential gaming app, Discord was just an in game chat feature for the mobile game "Fates Forever"!',
       weight: 2,
     },
     {
@@ -162,8 +155,7 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
     {
-      message:
-        "The first Youtube video is titled 'Me at the zoo'. It shows jawed in the Zoo, talking about elephants.",
+      message: "The first Youtube video is titled 'Me at the zoo'. It shows jawed in the Zoo, talking about elephants.",
       weight: 1,
     },
     {
@@ -195,6 +187,20 @@ export const WEBSITE_HINTS = {
   ],
 
   // Other sites
+  google: [
+    {
+      message: 'Maybe try Bing...',
+      weight: 1,
+    },
+    {
+      message: "When you you search for something and click 'I'm Feeling Lucky', google will automatically open the first search result. Try it out!",
+      weight: 1,
+    },
+    {
+      message: 'You can view all past google doodles on doodles.google',
+      weight: 1,
+    },
+  ],
   steampowered: [
     // Steam
     {
@@ -238,8 +244,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        'Fun fact: in onshape, you can import from any public onshape document! Just select "Import Derived", "Other", "Public", and search for what you want!',
+      message: 'Fun fact: in onshape, you can import from any public onshape document! Just select "Import Derived", "Other", "Public", and search for what you want!',
       weight: 3,
     },
   ],
@@ -259,8 +264,7 @@ export const WEBSITE_HINTS = {
   ],
   fullcontrol: [
     {
-      message:
-        'Fullcontrol allows you to generate gCodes that let you print without layers!',
+      message: 'Fullcontrol allows you to generate gCodes that let you print without layers!',
       weight: 2,
     },
     {
@@ -286,8 +290,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        'While known for their 3D printers, Elegoo also manufactures excellent Arduino devboards. You should check them out!',
+      message: 'While known for their 3D printers, Elegoo also manufactures excellent Arduino devboards. You should check them out!',
       weight: 3,
     },
   ],
@@ -297,20 +300,17 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        'Why are you looking for a graphics card when you can have Clippy even on a simple office PC?!',
+      message: 'Why are you looking for a graphics card when you can have Clippy even on a simple office PC?!',
       weight: 1,
     },
   ],
   samsung: [
     {
-      message:
-        'smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. ',
+      message: 'smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. smasnug. ',
       weight: 1,
     },
     {
-      message:
-        'Fun(?) fact! Different devisions of Samsung make Tanks, Cargo ships, and THE BURJ KHALIFA. THE TALLEST TOWER IN THE WORLD IS SAMSUNG',
+      message: 'Fun(?) fact! Different devisions of Samsung make Tanks, Cargo ships, and THE BURJ KHALIFA. THE TALLEST TOWER IN THE WORLD IS SAMSUNG',
       weight: 5,
     },
   ],
@@ -348,8 +348,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        "Walmart's mascot, smiley, was made in the 90s, retired from 2006-2016, and is here to help you shop again today",
+      message: "Walmart's mascot, smiley, was made in the 90s, retired from 2006-2016, and is here to help you shop again today",
       weight: 3,
     },
   ],
@@ -407,8 +406,7 @@ export const WEBSITE_HINTS = {
       weight: 1,
     },
     {
-      message:
-        "I love Axolotls, they're so cute! Have you found the rare colored one yet?",
+      message: "I love Axolotls, they're so cute! Have you found the rare colored one yet?",
       weight: 1,
     },
     {
@@ -453,62 +451,62 @@ export const WEBSITE_HINTS = {
   hackatime: [
     {
       message: 'Log some hours today!',
-      weight: 2
+      weight: 2,
     },
     {
       message: "pls don't do a fraud!",
-      weight: 1
-    }
+      weight: 1,
+    },
   ],
   ebay: [
     {
       message: "So you're browsing the electronic water cavity?",
-      weight: 1
-    }
+      weight: 1,
+    },
   ],
   mozilla: [
     {
-      message: "Mozilla made firefox! clippy like firefox",
-      weight: 1
-    }
+      message: 'Mozilla made firefox! clippy like firefox',
+      weight: 1,
+    },
   ],
   prusa: [
     {
-      message: "The Prusa Core 1 is a fully enclosed coreXY machine! Perfect for printing your shrines to me, in glorious engineering superpolymers!",
-      weight: 1
-    }
+      message: 'The Prusa Core 1 is a fully enclosed coreXY machine! Perfect for printing your shrines to me, in glorious engineering superpolymers!',
+      weight: 1,
+    },
   ],
   apple: [
     {
       message: "I'm more useful than AI siri, right?",
-      weight: 1
+      weight: 1,
     },
     {
       message: "Introducing the new iPhone... It's the same!",
-      weight: 1
-    }
+      weight: 1,
+    },
   ],
   blender: [
     {
-      message: "ANIMATE MORE OF ME!! My .blend is free on my github!",
-      weight: 1
+      message: 'ANIMATE MORE OF ME!! My .blend is free on my github!',
+      weight: 1,
     },
     {
       message: "Always delete the default cube.. You know what happens if you don't",
-      weight: 1
-    }
+      weight: 1,
+    },
   ],
   microsoft: [
     {
-      message: "microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop ",
-      weight:1
+      message:
+        'microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop microslop ',
+      weight: 1,
     },
     {
-      message: "Use linux!",
-      weight: 3
-    }
-  ]
-
+      message: 'Use linux!',
+      weight: 3,
+    },
+  ],
 }
 
 export const DEFAULT_HINTS = [
@@ -518,28 +516,23 @@ export const DEFAULT_HINTS = [
     weight: 1,
   },
   {
-    message:
-      'Did you know? You can use the Clippy extension to get "helpful" hints on any website you visit.',
+    message: 'Did you know? You can use the Clippy extension to get "helpful" hints on any website you visit.',
     weight: 3,
   },
   {
-    message:
-      'Click the Clippy icon in your browser extension menu to change some settings for me.',
+    message: 'Click the Clippy icon in your browser extension menu to change some settings for me.',
     weight: 2,
   },
   {
-    message:
-      "I am an open-source project! You can find the link to my GitHub repository in the extension's settings.",
+    message: "I am an open-source project! You can find the link to my GitHub repository in the extension's settings.",
     weight: 2,
   },
   {
-    message:
-      'Hey! If you downloaded me from the Chrome Web Store, please leave a positive review! It helps me out a lot!',
+    message: 'Hey! If you downloaded me from the Chrome Web Store, please leave a positive review! It helps me out a lot!',
     weight: 2,
   },
   {
-    message:
-      "Little history fun fact: I was first created in 1997, but removed in 2007 for being 'too annoying', but I am back now, and better than ever!",
+    message: "Little history fun fact: I was first created in 1997, but removed in 2007 for being 'too annoying', but I am back now, and better than ever!",
     weight: 3,
   },
 
