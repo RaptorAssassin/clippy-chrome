@@ -4,7 +4,7 @@ A Clippy browser extension that randomly pops up and gives more or less helpful 
 
 ![GitHub License](https://img.shields.io/github/license/RaptorAssassin/clippy-chrome?label=License)
 
-*Clippy image*
+<img width="443" height="397" alt="Clippy what&#39;s up" src="https://github.com/user-attachments/assets/ae138bed-21c6-49ed-a672-307f20abce46" />
 
 ## Features
 
