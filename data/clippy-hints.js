@@ -28,6 +28,10 @@ export const WEBSITE_HINTS = {
       message: 'At least use a different AI',
       weight: 2,
     },
+    {
+      message: 'Sam altman... i know what you did',
+      weight: 1
+    }
   ],
   claude: [
     ...AI_HINTS,
@@ -39,6 +43,9 @@ export const WEBSITE_HINTS = {
       message: "I love hanging out with Clawd, he's a great guy!",
       weight: 1,
     },
+    {
+      message: 'Like chatGPT, but ˢˡᶦᵍʰᵗˡʸ ˡᵉˢˢ corrupt'
+    }
   ],
   deepseek: [
     ...AI_HINTS,
@@ -46,6 +53,14 @@ export const WEBSITE_HINTS = {
       message: "Taiwan's a countr... Sorry, this is beyond my current scope. Let's talk about something else.",
       weight: 1,
     },
+    {
+      message: "Deepseek is the autopilot for BYD!",
+      weight: 1,
+    },
+    {
+      message: "Deepseek can run on a Raspberry Pi",
+      weight: 1,
+    }
   ],
   copilot: [
     {
@@ -56,6 +71,10 @@ export const WEBSITE_HINTS = {
       message: 'say hi to copiilot for me',
       weight: 1,
     },
+    {
+      message: 'MICROSLOP',
+      weight: 1,
+    }
   ],
   grok: [
     {
@@ -66,6 +85,9 @@ export const WEBSITE_HINTS = {
       message: 'EVEN CHATGPT IS BETTER THAN THIS.',
       weight: 1,
     },
+    {
+      message: 'Grok was made by the Elongated Muskrat'
+    }
   ],
   gemini: [...AI_HINTS],
 
@@ -134,6 +156,10 @@ export const WEBSITE_HINTS = {
       message: 'I prefer MS Teams, but Slack looks pretty solid as well',
       weight: 1,
     },
+    {
+      message: 'Like Discord, but for work!',
+      weight: 1,
+    }
   ],
   discord: [
     {
@@ -144,6 +170,10 @@ export const WEBSITE_HINTS = {
       message: 'Say hi to Wumpus for me!',
       weight: 1,
     },
+    {
+      message: 'Like Slack, but with AGE VERIFICATION',
+      weight: 1,
+    }
   ],
   youtube: [
     {
@@ -507,6 +537,20 @@ export const WEBSITE_HINTS = {
       weight: 3,
     },
   ],
+  dingusland: [
+    {
+      message: "na no",
+      weight: 1
+    },
+    {
+      message: "frank",
+      weight: 1
+    },
+    {
+      message: "go to cashies!",
+      weight: 1
+    }
+  ]
 }
 
 export const DEFAULT_HINTS = [
