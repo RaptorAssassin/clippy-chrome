@@ -11,7 +11,7 @@ A Clippy browser extension that randomly pops up and gives more or less helpful 
 **Awesome Hints**: Clippy gives random hints, depending on the website you're on! If no specific hints are available, it falls back to some default ones.  
 **Change chance of Clippy appearing**: If Clippy annoys you too much, you can decrease the chance of Clippy popping up on your sites or even disable him completely. But he will be really sad! You also got the option to add some sites to a blacklist so Clippy won't appear there anymore.  
 **Remove Google AI overview from your search**: If the AI overview annoys you, Clippy's here for you and removes it from your search results.  
-**Custom Animations** 6 custom Clippy animaions that randomly play on any website you visit!
+**Custom Animations** 6 custom Clippy (and 1 secret one) animaions that randomly play on any website you visit!
 
 ## Technology
 

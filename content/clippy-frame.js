@@ -4,7 +4,8 @@ const ANIMATIONS = [
   'anims/still.webm',
   'anims/gun.webm',
   'anims/unfold.webm',
-  'anims/copter.webm'
+  'anims/copter.webm',
+  'anims/stapley.webm'
 ]
 
 function resolveAnimation(requested) {

@@ -556,6 +556,10 @@ export const WEBSITE_HINTS = {
 export const DEFAULT_HINTS = [
   // Clippy-related hints
   {
+    message: "Rumor has it, 1/100 websites, my cursed brother Stapley appears. Beware",
+    weight: 8
+  },
+  {
     message: "pls don't disable me",
     weight: 1,
   },

@@ -25,26 +25,30 @@ export const WEBSITE_ANIMS = {
 export const DEFAULT_ANIMS = [
   {
     anim: 'anims/ballspin.webm',
-    weight: 2,
+    weight: 16,
   },
   {
     anim: 'anims/bounce.webm',
-    weight: 2,
+    weight: 16,
   },
   {
     anim: 'anims/still.webm',
-    weight: 2,
+    weight: 19,
   },
   {
     anim: 'anims/gun.webm',
-    weight: 1,
+    weight: 16,
   },
   {
     anim: 'anims/unfold.webm',
-    weight: 2
+    weight: 16
   },
   {
     anim: 'anims/copter.webm',
-    weight: 2
+    weight: 16
+  },
+  {
+    anim: 'anims/stapley.webm',
+    weight: 1
   }
 ]
