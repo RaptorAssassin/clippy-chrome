@@ -17,6 +17,14 @@ A Clippy browser extension that randomly pops up and gives more or less helpful 
 
 This extension was built with vanilla HTML, CSS and JavaScript. It's backend runs on a service worker, which triggers a Clippy hint everytime a site is opened or reloaded. This hint gets passed to the frontend where it gets decided whether to actually display the hint based on the user settings like the chance of Clippy appearing, the website blacklist etc.
 
+## Installation
+- Download the .zip Source file from the 'Releases' Page
+- Go to 'Manage Extensions', and enable developer mode.
+- In files, unzip the source file
+- In 'Manage Extensions', select 'Load Unpacked'
+- Click the unzipped folder, then the folder inside that, then click 'Open'
+- Enjoy!
+
 ## Folder Structure
 
 `/popup`: The popup that appears when you click the extension icon which contains settings for Clippy.  
