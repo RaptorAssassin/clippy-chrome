@@ -22,7 +22,7 @@ This extension was built with vanilla HTML, CSS and JavaScript. It's backend run
 - Go to 'Manage Extensions', and enable developer mode.
 - In files, unzip the source file
 - In 'Manage Extensions', select 'Load Unpacked'
-- Click the unzipped folder, then the folder inside that, then click 'Open'
+- Click the unzipped folder, then click 'Open'
 - Enjoy!
 
 ## Folder Structure
