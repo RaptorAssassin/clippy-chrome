@@ -19,12 +19,17 @@ This extension was built with vanilla HTML, CSS and JavaScript. It's backend run
 
 ## Installation
 
-- Download the .zip Source file from the 'Releases' Page
-- Go to 'Manage Extensions', and enable developer mode.
-- In files, unzip the source file
-- In 'Manage Extensions', select 'Load Unpacked'
-- Click the unzipped folder, then click 'Open'
-- Enjoy!
+This extension is available for all Chromium-based browsers(Chrome, Edge, Brave etc.) and Firefox on the [Mozilla Addons Store](https://addons.mozilla.org/en-US/firefox/addon/clippy-hints/).
+
+**Firefox:** Click install and the extension will be added.
+
+**Chromium-based browsers:**
+
+1. Click "Download File" on the extension page.
+2. Visit your extension settings and enable the developer mode.
+3. Drag and drop or upload the downloaded `.xpi` file there to add the extension.  
+
+⭐⭐⭐⭐⭐Consider leaving a positive review on the Mozilla Addons page to support this project.
 
 ## Folder Structure
 
